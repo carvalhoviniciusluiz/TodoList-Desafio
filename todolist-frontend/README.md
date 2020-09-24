@@ -21,7 +21,7 @@
 </p>
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/22005684/94098445-fd374600-fdfe-11ea-9944-bcd146094ba2.png" alt="Preview 1" />
+  <img src="https://user-images.githubusercontent.com/22005684/94141388-064a0680-fe43-11ea-9a6e-fd525948f86f.png" alt="Preview 1" />
 </p>
 
 ## :rocket: Sobre o projeto

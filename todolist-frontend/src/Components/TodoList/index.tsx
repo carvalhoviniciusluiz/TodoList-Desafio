@@ -31,8 +31,8 @@ const TodoList: React.FC = () => {
           </Item>
 
           <Item>
-            <Checkbox id="checkbox-2" />
-            <TextItem>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui aperiam autem id hic iusto, est quasi at eum? Exercitationem repellat.</TextItem>
+            <Checkbox id="checkbox-2" onChecked/>
+            <TextItem completed>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui aperiam autem id hic iusto, est quasi at eum? Exercitationem repellat.</TextItem>
             <Destroy>&#65794;</Destroy>
           </Item>
 

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Section = styled.section`
   position: relative;
@@ -65,10 +65,21 @@ export const Item = styled.li`
   }
 `;
 
-export const TextItem = styled.label`
+interface TextItemProps {
+  completed?: boolean;
+}
+
+const completed = css`
+  color: #d9d9d9;
+  text-decoration: line-through;
+`;
+
+export const TextItem = styled.label<TextItemProps>`
   word-break: break-all;
   padding: 15px 15px 15px 60px;
   display: block;
+
+  ${props => props.completed && completed}
 `;
 
 export const Destroy = styled.button`
