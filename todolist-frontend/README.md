@@ -20,6 +20,8 @@
   <a href="#memo-licença">Licença</a>
 </p>
 
+![Captura de Tela 2020-09-24 às 00 43 34](https://user-images.githubusercontent.com/22005684/94098445-fd374600-fdfe-11ea-9944-bcd146094ba2.png)
+
 ## :rocket: Sobre o projeto
 
 ### **Desafio**
