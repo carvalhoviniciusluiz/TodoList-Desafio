@@ -1,9 +1,9 @@
 import React from 'react';
 
-function App() {
-  return (
-    <h1>Hello world</h1>
-  );
+import TodoList from './Components/TodoList'
+
+const App: React.FC = () => {
+  return <TodoList />;
 }
 
 export default App;
