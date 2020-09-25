@@ -58,6 +58,11 @@ Subindo um servidor de desenvolvimento:
 
     yarn start:dev
 
+Configurando o banco de dados com docker:
+
+    docker run --name postgres -e POSTGRES_PASSWORD=docker -e POSTGRES_DB=todolist-develop -p 5432:5432 -d postgres
+
+
 ## :metal: Como usar o Insomnia
 
 [Insomnia](https://insomnia.rest/download/) é uma ferramenta que facilita testes de api. Você pode importar as rotas do projeto clique no butão `Run in Insomnia` que fica localizado no topo da página para facilitar os seus testes.
