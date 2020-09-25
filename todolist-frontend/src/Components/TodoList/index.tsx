@@ -1,5 +1,5 @@
 import React from 'react';
-import { getTodoList } from '../../services/TodoList.service';
+import { getTodoList, deleteTodoList } from '../../services/TodoList.service';
 import { TodoItem } from '../../types/TodoItem';
 import Checkbox from '../Checkbox';
 
@@ -26,6 +26,15 @@ const TodoList: React.FC = () => {
     })();
   }, []);
 
+  async function handleRemove(id: string) {
+    try {
+      await deleteTodoList(id);
+      setTodoList((prevState) => prevState.filter(item => item.id !== id));
+    } catch (error) {
+      alert('Erro!!')
+    }
+  }
+
   return (
     <Section>
       <Title>todos ;P</Title>
@@ -39,7 +48,7 @@ const TodoList: React.FC = () => {
             <Item key={todoItem.id}>
               <Checkbox id={todoItem.id} />
               <TextItem>{todoItem.description}</TextItem>
-              <Destroy>&#65794;</Destroy>
+              <Destroy onClick={() => handleRemove(todoItem.id)}>&#65794;</Destroy>
             </Item>
           ))}
         </DotoList>
