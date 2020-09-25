@@ -24,6 +24,11 @@ export class TodoListsService {
     return this.todoListRepository.updateTodoItem(todo, updateTodoItemDto);
   }
 
+  async deleteTodoItem(id: string) {
+    const todo = await this.getTodoItemByIdOrFail(id);
+    await todo.softRemove();
+  }
+
   async getTodoItemByIdOrFail(id: string) {
     const todo = await this.todoListRepository.findOne(id);
     if (!todo) {

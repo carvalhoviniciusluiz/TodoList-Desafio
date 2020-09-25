@@ -1,6 +1,7 @@
 import {
   Body,
   Controller,
+  Delete,
   Get,
   Param,
   Patch,
@@ -33,5 +34,12 @@ export class TodoListsController {
     @Body(ValidationPipe) updateTodoItemDto: UpdateTodoItemDto,
   ) {
     return this.todoListsService.updateTodoItem(id, updateTodoItemDto);
+  }
+
+  @Delete('/:id')
+  deleteTodoItem(
+    @Param('id', ValidationPipe) id: string,
+  ): Promise<void> {
+    return this.todoListsService.deleteTodoItem(id);
   }
 }

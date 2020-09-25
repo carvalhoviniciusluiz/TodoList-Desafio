@@ -6,6 +6,7 @@ import {
   Generated,
   PrimaryGeneratedColumn,
   Column,
+  DeleteDateColumn,
 } from 'typeorm';
 
 @Entity('todo-items')
@@ -25,4 +26,7 @@ export class TodoItem extends BaseEntity {
 
   @UpdateDateColumn({ name: 'updated_at' })
   updatedAt: Date;
+
+  @DeleteDateColumn({ name: 'deleted_at' })
+  deletedAt?: Date;
 }
