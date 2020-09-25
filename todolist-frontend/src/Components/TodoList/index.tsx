@@ -2,7 +2,8 @@ import React from 'react';
 import {
   getTodoList,
   deleteTodoList,
-  createTodoItem
+  createTodoItem,
+  updateTodoItem,
 } from '../../services/TodoList.service';
 import { TodoItem } from '../../types/TodoItem';
 import Checkbox from '../Checkbox';
@@ -57,6 +58,22 @@ const TodoList: React.FC = () => {
     }
   }
 
+  async function handleChecked(todoItem: TodoItem) {
+    try {
+      const done = !todoItem.done
+      await updateTodoItem(todoItem.id, {
+        done,
+      });
+      setTodoList((prevState) =>
+        prevState.map((obj) => {
+          return obj.id === todoItem.id ? { ...obj, done } : obj;
+        })
+      );
+    } catch (error) {
+      alert('Erro!!')
+    }
+  }
+
   return (
     <Section>
       <Title>todos ;P</Title>
@@ -73,9 +90,15 @@ const TodoList: React.FC = () => {
         <DotoList>
           {todoList.map(todoItem => (
             <Item key={todoItem.id}>
-              <Checkbox id={todoItem.id} />
+              <Checkbox
+                id={todoItem.id}
+                onChecked={todoItem.done}
+                onChange={() => handleChecked(todoItem)}
+              />
               <TextItem>{todoItem.description}</TextItem>
-              <Destroy onClick={() => handleRemove(todoItem.id)}>&#65794;</Destroy>
+              <Destroy
+                onClick={() => handleRemove(todoItem.id)}
+              >&#65794;</Destroy>
             </Item>
           ))}
         </DotoList>
