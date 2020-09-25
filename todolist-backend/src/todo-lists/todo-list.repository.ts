@@ -10,7 +10,7 @@ export class TodoListRepository extends Repository<TodoItem> {
   }
 
   async getTodoLists(): Promise<TodoItem[]> {
-    const query = this.getTodoListQuery();
+    const query = this.getTodoListQuery().orderBy({ updated_at: 'DESC' });
     return query.getMany();
   }
 
