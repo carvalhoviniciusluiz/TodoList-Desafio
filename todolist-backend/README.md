@@ -41,7 +41,7 @@ Criar um to do-list utilizando ReactJs ou RN, que grava e consome dados de uma a
 
 ### **As ferramentas que você irá encontrar**
 
-Aplicação criada do zero usando [Express.js](https://expressjs.com/pt-br/api.html), conta com as seguintes ferramentas:
+Aplicação criada do zero usando [NestJs](https://nestjs.com/), conta com as seguintes ferramentas:
 
 - NestJs;
 - TypeOrm;
