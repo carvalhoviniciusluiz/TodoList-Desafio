@@ -88,6 +88,13 @@ Atualiza o atributo `done` de um item específico no todo;
   <img src="https://user-images.githubusercontent.com/22005684/94219482-506fce00-febd-11ea-877f-a4d59800eae9.png" alt="Image 3" />
 </p>
 
+### **Delete todo item**
+Remove um item específico no todo;
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/22005684/94221374-58317180-fec1-11ea-947c-8f100ffc58c3.png" alt="Image 4" />
+</p>
+
 ## :memo: Licença
 
 Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
