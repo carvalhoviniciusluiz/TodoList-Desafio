@@ -1,4 +1,6 @@
 import React from 'react';
+import { getTodoList } from '../../services/TodoList.service';
+import { TodoItem } from '../../types/TodoItem';
 import Checkbox from '../Checkbox';
 
 import {
@@ -15,6 +17,15 @@ import {
 } from './styles';
 
 const TodoList: React.FC = () => {
+  const [todoList, setTodoList] = React.useState<TodoItem[]>([])
+
+  React.useEffect(() => {
+    (async () => {
+      const response = await getTodoList();
+      setTodoList(response);
+    })();
+  }, []);
+
   return (
     <Section>
       <Title>todos ;P</Title>
@@ -24,23 +35,13 @@ const TodoList: React.FC = () => {
 
       <ContentWrap>
         <DotoList>
-          <Item>
-            <Checkbox id="checkbox-1" />
-            <TextItem>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui aperiam autem id hic iusto, est quasi at eum? Exercitationem repellat.</TextItem>
-            <Destroy>&#65794;</Destroy>
-          </Item>
-
-          <Item>
-            <Checkbox id="checkbox-2" onChecked/>
-            <TextItem completed>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui aperiam autem id hic iusto, est quasi at eum? Exercitationem repellat.</TextItem>
-            <Destroy>&#65794;</Destroy>
-          </Item>
-
-          <Item>
-            <Checkbox id="checkbox-2" />
-            <TextItem>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui aperiam autem id hic iusto, est quasi at eum? Exercitationem repellat.</TextItem>
-            <Destroy>&#65794;</Destroy>
-          </Item>
+          {todoList.map(todoItem => (
+            <Item key={todoItem.id}>
+              <Checkbox id={todoItem.id} />
+              <TextItem>{todoItem.description}</TextItem>
+              <Destroy>&#65794;</Destroy>
+            </Item>
+          ))}
         </DotoList>
       </ContentWrap>
 
