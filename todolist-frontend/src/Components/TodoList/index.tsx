@@ -1,5 +1,9 @@
 import React from 'react';
-import { getTodoList, deleteTodoList } from '../../services/TodoList.service';
+import {
+  getTodoList,
+  deleteTodoList,
+  createTodoItem
+} from '../../services/TodoList.service';
 import { TodoItem } from '../../types/TodoItem';
 import Checkbox from '../Checkbox';
 
@@ -17,6 +21,7 @@ import {
 } from './styles';
 
 const TodoList: React.FC = () => {
+  const [newItem, setNewItem] = React.useState('')
   const [todoList, setTodoList] = React.useState<TodoItem[]>([])
 
   React.useEffect(() => {
@@ -35,12 +40,34 @@ const TodoList: React.FC = () => {
     }
   }
 
+  function handleNewItem(event: React.ChangeEvent<HTMLInputElement>) {
+    const value = event.currentTarget.value;
+    setNewItem(value);
+  }
+
+  async function handleSubmit(event: React.ChangeEvent<HTMLInputElement>) {
+    const description = event.currentTarget.value;
+    if (!description) return;
+    try {
+      const response = await createTodoItem({ description });
+      setTodoList((prevState) => [...prevState, response]);
+      setNewItem('');
+    } catch (error) {
+      alert('Erro!!')
+    }
+  }
+
   return (
     <Section>
       <Title>todos ;P</Title>
 
       <ToggleAll />
-      <NewTodo placeholder="O que precisa ser feito?" />
+      <NewTodo
+        placeholder="O que precisa ser feito?"
+        value={newItem}
+        onChange={handleNewItem}
+        onBlur={handleSubmit}
+      />
 
       <ContentWrap>
         <DotoList>
